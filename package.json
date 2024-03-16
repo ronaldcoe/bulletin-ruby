@@ -5,6 +5,8 @@
     "tailwindcss": "^3.4.1"
   },
   "scripts": {
-    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify"
+    "build:css": "tailwindcss -i ./app/assets/stylesheets/application.tailwind.css -o ./app/assets/builds/application.css --minify",
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --open"
   }
 }
