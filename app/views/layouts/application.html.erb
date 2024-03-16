@@ -7,10 +7,11 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    
 
 
     <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
   <body>
@@ -20,9 +21,23 @@
     <main class="max-w-[1000px] mx-auto mt-28 px-5 flex flex-col">
 
       <% flash.each do |message_type, message| %>
-        <div class="<%= flash_class(message_type)  %>"><%= message %></div>
+        <div class="<%= flash_class(message_type)  %> flash-message"><%= message %></div>
       <% end %>
       <%= yield %>
     </main>
+
+
+
+    <script>
+    document.addEventListener("turbo:load", function(){ // For Turbo, or "turbolinks:load" for Turbolinks
+      const flashMessages = document.querySelectorAll('.flash-message');
+      setTimeout(function() {
+        flashMessages.forEach(function(flashMessage) {
+          flashMessage.style.display = 'none';
+        });
+      }, 3000);
+    });
+
+  </script>
   </body>
 </html>

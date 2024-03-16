@@ -1,6 +1,12 @@
 class DiscussionThreadsController < ApplicationController
   before_action :set_discussion_thread, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_owner, only: [:edit, :update]
 
+
+  def index
+    @discussion_threads = DiscussionThread.all
+  end
   def new
     @discussion_thread = DiscussionThread.new
   end
@@ -48,4 +54,17 @@ class DiscussionThreadsController < ApplicationController
     # Ensure this method only includes the parameters you want to permit
     params.require(:discussion_thread).permit(:title, :content, :locked)
   end
+  def authenticate_user
+    redirect_to login_path, alert: 'You must be logged in to perform that action.' unless current_user
+  end
+
+  private
+
+  def check_owner
+    @discussion_thread = DiscussionThread.find(params[:id])
+    unless current_user && current_user.id == @discussion_thread.user_id
+      redirect_to discussion_threads_path, alert: "You are not authorized to edit this thread."
+    end
+  end
+
 end

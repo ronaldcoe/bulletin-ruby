@@ -2,12 +2,12 @@
 
 
 <div class="md:fit bg-white mx-auto flex rounded shadow">
-    <div class="p-8 bg-blue-50  flex flex-col justify-between hidden md:flex">
+    <div class="p-8 bg-blue-50 w-[500px] flex flex-col justify-between hidden md:flex">
         <h1 class="text-xl text-blue-700 font-bold">Bulletin App</h1>
-        <%= image_tag('signup.svg', alt: 'Bulletin App', class: 'w-64 h-64') %>
+        <%= image_tag('signup.svg', alt: 'Bulletin App', class: 'block mx-auto w-64 h-64') %>
         <a href="https://ronaldcoello.com/" class="text-xs hover:underline" target="_blank">Made by Ronald Coello</a>
     </div>
-    <div class="py-8 px-4 md:px-32 w-full md:max-w-[600px]">
+    <div class="py-8 px-4 md:px-32 w-full md:max-w-[550px]">
         <h1 class="text-md mb-8 font-bold text-gray-700">Log in</h1>
 
         <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
