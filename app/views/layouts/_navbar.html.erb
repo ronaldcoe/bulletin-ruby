@@ -1,0 +1,15 @@
+<!-- app/views/layouts/_navbar.html.erb -->
+<nav class="bg-gray-800 p-4 text-white">
+  <div class="container mx-auto flex justify-between items-center">
+    <a href="/" class="text-2xl">💎 BulletinRuby</a>
+    <div>
+      <% if current_user %>
+        <%= link_to current_user.name, current_user, class: "text-white px-3 py-2 rounded-md" %>
+        <%= link_to 'Logout', logout_path, method: :delete, class: "text-white px-3 py-2 rounded-md" %>
+      <% else %>
+        <%= link_to 'Sign Up', signup_path, class: "text-white px-3 py-2 rounded-md" %>
+        <%= link_to 'Login', login_path, class: "text-white px-3 py-2 rounded-md" %>
+      <% end %>
+    </div>
+  </div>
+</nav>

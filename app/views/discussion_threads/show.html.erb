@@ -1,0 +1,78 @@
+<!-- app/views/discussion_threads/show.html.erb -->
+
+<div class="flex flex-col w-full">
+  <div class="card_thread w-full">
+    <div class="flex justify-between">
+                  <div class="flex gap-2">
+                    <svg  xmlns="http://www.w3.org/2000/svg"  
+                      width="14"  height="14"  viewBox="0 0 24 24"  
+                      fill="currentColor"  
+                      class="icon icon-tabler icons-tabler-filled icon-tabler-user">
+                      <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                      <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                      <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
+                    </svg>
+                    <p class="text-xs"><%= @discussion_thread.user.name %></p>
+                  </div>
+                  <div>
+                        <p class="text-xs"><%= @discussion_thread.created_at.to_formatted_s(:short) %></p>
+                  </div>
+                </div>
+                <h2 class="text-2xl font-bold mt-4"><%= @discussion_thread.title %></h2>
+                <p class="mt-4"><%= @discussion_thread.content %></p
+    </div>
+  </div>
+
+  <div class="block mt-8">
+
+    <!-- Display comments and comment form here, as shown in the earlier example -->
+    <div class="card_thread">
+      <h2 class="text-xl font-bold mt-4">Comments</h2>
+      <ul class="flex flex-col gap-8 mt-4" style="margin-top:10px">
+        <% @discussion_thread.comments.each do |comment| %>
+          <!-- Display each comment -->
+          <li class="w-full">
+            <div class="flex items-center gap-4">
+                  <svg  xmlns="http://www.w3.org/2000/svg"  
+                    width="24"  height="24"  viewBox="0 0 24 24"  
+                    fill="currentColor"  
+                    class="icon icon-tabler icons-tabler-filled icon-tabler-user">
+                    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+                    <path d="M12 2a5 5 0 1 1 -5 5l.005 -.217a5 5 0 0 1 4.995 -4.783z" />
+                    <path d="M14 14a5 5 0 0 1 5 5v1a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2v-1a5 5 0 0 1 5 -5h4z" />
+                  </svg>
+              <div class="flex flex-col">
+                <div class="flex gap-2">
+                  
+                  <p class="text-xs"><%= comment.user.name %></p>
+                  <p class="text-xs"><%= comment.created_at.to_formatted_s(:short) %></p>
+                </div>
+              
+                <p class="mt-4"><%= comment.content %></p>
+              </div>
+              
+            </div>
+            
+          </li>
+        <% end %>
+      </ul>
+    </div>
+    <!-- Conditionally display the form to add a new comment if the thread isn't locked -->
+    
+    <% if !@discussion_thread.locked? %>
+      <!-- Display the form -->
+      <%= form_with(model: [@discussion_thread, Comment.new], local: true) do |form| %>
+        <p>
+          <%= form.text_area :content, placeholder: "Add a comment", class: "input" %>
+        </p>
+        <p>
+          <%= form.submit "Post Comment", class: "button mt 4" %>
+        </p>
+      <% end %>
+    <% else %>
+      <!-- Display a message if the thread is locked -->
+      <p>This thread is locked and no longer accepting comments.</p>
+    <% end %>
+
+  </div>
+</div>

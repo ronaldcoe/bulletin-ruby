@@ -3,16 +3,24 @@
 @tailwind utilities;
 
 
-
+* {
+  margin:0;
+  padding: 0;
+  box-sizing: border-box
+}
 
 .input {
-  @apply border border-gray-300 rounded-md;
+  @apply text-sm border border-gray-300 rounded-md w-full;
 }
 
 .label {
-  @apply block text-gray-700 text-sm font-bold mt-4;
+  @apply block text-gray-700 text-xs mt-4;
 }
 
 .button {
   @apply bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded;
+}
+
+.card_thread {
+  @apply bg-white shadow-md rounded-lg p-6;
 }

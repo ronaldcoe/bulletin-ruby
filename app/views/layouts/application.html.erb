@@ -14,7 +14,14 @@
   </head>
 
   <body>
+    <% unless controller_name == 'sessions' && (action_name == 'new' || action_name == 'create') || controller_name == 'users' && (action_name == 'new' || action_name == 'create') %>
+      <%= render 'layouts/navbar' %>
+    <% end %>
     <main class="max-w-[1000px] mx-auto mt-28 px-5 flex">
+
+      <% flash.each do |message_type, message| %>
+        <div class="<%= flash_class(message_type) %>"><%= message %></div>
+      <% end %>
       <%= yield %>
     </main>
   </body>

@@ -10,9 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_03_16_020025) do
+ActiveRecord::Schema[7.1].define(version: 2024_03_16_075155) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "comments", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id", null: false
+    t.bigint "discussion_thread_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["discussion_thread_id"], name: "index_comments_on_discussion_thread_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "discussion_threads", force: :cascade do |t|
+    t.string "title"
+    t.text "content"
+    t.boolean "locked"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_discussion_threads_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name"
@@ -22,4 +42,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_16_020025) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "comments", "discussion_threads"
+  add_foreign_key "comments", "users"
+  add_foreign_key "discussion_threads", "users"
 end
