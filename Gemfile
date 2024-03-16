@@ -75,5 +75,3 @@ group :development, :test do
 end
 
 gem "tailwindcss-rails", "~> 2.3"
-
-gem "cssbundling-rails", "~> 1.4"
