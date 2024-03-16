@@ -1,11 +1,11 @@
 <!-- app/views/users/new.html.erb -->
-<div class="w-full md:fit bg-white mx-auto flex rounded shadow">
+<div class="md:fit bg-white mx-auto flex rounded shadow">
     <div class="p-8 bg-blue-50  flex flex-col justify-between hidden md:flex">
         <h1 class="text-xl text-blue-700 font-bold">Bulletin App</h1>
         <%= image_tag('signup.svg', alt: 'Bulletin App', class: 'w-64 h-64') %>
         <a href="https://ronaldcoello.com/" class="text-xs hover:underline" target="_blank">Made by Ronald Coello</a>
     </div>
-    <div class="py-8 px-4 md:px-32 w-full md:max-w-[350px]">
+    <div class="py-8 px-4 md:px-32 w-full md:max-w-[600px]">
         <h1 class="text-md mb-8 font-bold text-gray-700">Start by creating an account</h1>
 
         <%= form_with(model: @user, local: true) do |form| %>
