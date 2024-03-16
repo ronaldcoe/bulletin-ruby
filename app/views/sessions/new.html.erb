@@ -1,22 +1,24 @@
 <!-- app/views/sessions/new.html.erb -->
-<div class="min-h-screen flex items-center justify-center">
+<div class="flex items-center w-full justify-center">
   <div class="max-w-md w-full">
     <h1 class="text-3xl text-center mb-6">Log in to Bulletin App</h1>
     
     <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
       <div class="mb-4">
-        <%= form.label :email, class: 'block text-gray-700 text-sm font-bold mb-2' %>
-        <%= form.email_field :email, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline', required: true %>
+        <%= form.label :email, class: 'label' %>
+        <%= form.email_field :email, class: 'input', required: true %>
       </div>
       
       <div class="mb-6">
-        <%= form.label :password, class: 'block text-gray-700 text-sm font-bold mb-2' %>
-        <%= form.password_field :password, class: 'shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline', required: true %>
+        <%= form.label :password, class: 'label' %>
+        <%= form.password_field :password, class: 'input', required: true %>
       </div>
       
       <div class="flex items-center justify-between">
-        <%= form.submit 'Log in', class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+        <%= form.submit 'Log in', class: 'bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
       </div>
     <% end %>
+    <hr class="mt-8 h-[10px]">
+    <%= link_to 'Create an account', signup_path, class: 'block text-center border w-full hover:bg-slate-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8' %>
   </div>
 </div>
