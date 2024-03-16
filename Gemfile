@@ -73,3 +73,7 @@ end
 group :development, :test do
   gem 'dotenv-rails'
 end
+
+gem "tailwindcss-rails", "~> 2.3"
+
+gem "cssbundling-rails", "~> 1.4"
