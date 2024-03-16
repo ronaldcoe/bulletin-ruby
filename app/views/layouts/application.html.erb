@@ -20,7 +20,7 @@
     <main class="max-w-[1000px] mx-auto mt-28 px-5 flex flex-col">
 
       <% flash.each do |message_type, message| %>
-        <div class="<%= flash_class(message_type)  %> p-6"><%= message %></div>
+        <div class="<%= flash_class(message_type)  %>"><%= message %></div>
       <% end %>
       <%= yield %>
     </main>

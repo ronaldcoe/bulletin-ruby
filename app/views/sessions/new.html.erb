@@ -1,24 +1,39 @@
 <!-- app/views/sessions/new.html.erb -->
-<div class="flex items-center w-full justify-center">
-  <div class="max-w-md w-full">
-    <h1 class="text-3xl text-center mb-6">Log in to Bulletin App</h1>
-    
-    <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
-      <div class="mb-4">
-        <%= form.label :email, class: 'label' %>
-        <%= form.email_field :email, class: 'input', required: true %>
-      </div>
-      
-      <div class="mb-6">
-        <%= form.label :password, class: 'label' %>
-        <%= form.password_field :password, class: 'input', required: true %>
-      </div>
-      
-      <div class="flex items-center justify-between">
-        <%= form.submit 'Log in', class: 'bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
-      </div>
-    <% end %>
-    <hr class="mt-8 h-[10px]">
-    <%= link_to 'Create an account', signup_path, class: 'block text-center border w-full hover:bg-slate-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8' %>
-  </div>
+
+
+<div class="w-full md:fit bg-white mx-auto flex rounded shadow">
+    <div class="p-8 bg-blue-50  flex flex-col justify-between hidden md:flex">
+        <h1 class="text-xl text-blue-700 font-bold">Bulletin App</h1>
+        <%= image_tag('signup.svg', alt: 'Bulletin App', class: 'w-64 h-64') %>
+        <a href="https://ronaldcoello.com/" class="text-xs hover:underline" target="_blank">Made by Ronald Coello</a>
+    </div>
+    <div class="py-8 px-4 md:px-32 w-full md:max-w-[350px]">
+        <h1 class="text-md mb-8 font-bold text-gray-700">Log in</h1>
+
+        <%= form_with(scope: :session, url: login_path, local: true) do |form| %>
+          <div class="mb-4">
+            <%= form.label :email, class: 'label' %>
+            <%= form.email_field :email, class: 'input', required: true %>
+          </div>
+          
+          <div class="mb-6">
+            <%= form.label :password, class: 'label' %>
+            <%= form.password_field :password, class: 'input', required: true %>
+          </div>
+          
+          <div class="flex items-center justify-between">
+            <%= form.submit 'Log in', class: 'bg-blue-500 w-full hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline' %>
+          </div>
+        <% end %>
+        <hr class="mt-8 h-[10px]">
+        <%= link_to 'Create an account', signup_path, class: 'block text-center border w-full hover:bg-slate-300 text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mt-8' %>
+    </div>
 </div>
+
+
+
+
+
+
+
+
