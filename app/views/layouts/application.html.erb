@@ -26,7 +26,9 @@
       <%= yield %>
     </main>
 
-
+    <% unless controller_name == 'sessions' && (action_name == 'new' || action_name == 'create') || controller_name == 'users' && (action_name == 'new' || action_name == 'create') %>
+      <%= render 'layouts/footer' %>
+    <% end %>
 
     <script>
     document.addEventListener("turbo:load", function(){ // For Turbo, or "turbolinks:load" for Turbolinks
