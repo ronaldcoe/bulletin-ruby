@@ -1,7 +1,7 @@
 <!-- app/views/layouts/_navbar.html.erb -->
 <nav class="bg-blue-50 p-4">
   <div class="container mx-auto flex justify-between items-center">
-    <a href="/" class="text-2xl">💎 BulletinRuby</a>
+    <a href="/" class="text-md md:text-2xl">💎 BulletinRuby</a>
     <div>
       <% if current_user %>
         <%= link_to current_user.name, current_user, class: "px-3 py-2 rounded-md" %>
