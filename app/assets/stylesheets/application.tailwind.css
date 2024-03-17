@@ -25,17 +25,7 @@
   @apply bg-white shadow-md rounded-lg p-6;
 }
 
-.body_grid {
-  display: grid;
-  grid-template-rows: 72px auto auto;
-  grid-template-columns: 1fr;
-  min-height: 100vh;
-}
 
-footer {
-
-  align-self: end;
-}
 
 main {
   width: 100%;
