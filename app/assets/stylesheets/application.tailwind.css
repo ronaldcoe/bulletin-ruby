@@ -27,8 +27,8 @@
 
 .body_grid {
   display: grid;
-  grid-template-rows: auto auto auto;
-  grid-column: 1fr;
+  grid-template-rows: 72px auto auto;
+  grid-template-columns: 1fr;
   min-height: 100vh;
 }
 
