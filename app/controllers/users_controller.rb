@@ -14,7 +14,9 @@ class UsersController < ApplicationController
       # Handle a successful save.
       # For example, you might want to log the user in and redirect them to a profile page:
       # log_in @user (you'll write this log_in method later)
-      redirect_to user_path(@user)
+      # redirect_to user_path(@user)
+      flash[:success] = 'You have successfully created an account.'
+      redirect_to login_path
     else
       render 'new'
     end
