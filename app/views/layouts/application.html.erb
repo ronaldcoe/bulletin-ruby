@@ -14,7 +14,7 @@
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
   </head>
 
-  <body>
+  <body class="body_grid">
     <% unless controller_name == 'sessions' && (action_name == 'new' || action_name == 'create') || controller_name == 'users' && (action_name == 'new' || action_name == 'create') %>
       <%= render 'layouts/navbar' %>
     <% end %>

@@ -24,3 +24,13 @@
 .card_thread {
   @apply bg-white shadow-md rounded-lg p-6;
 }
+
+.body_grid {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  min-height: 100vh;
+}
+
+footer {
+  align-self: end;
+}
